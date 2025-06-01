@@ -1,0 +1,11 @@
+[
+  
+  {
+    "emailKey": "email_payment_receipt_default",
+    "emailName":"Payment Email",
+    "emailSubject":"Payment From Idurar",
+    "emailBody": "<p>email_payment_receipt_default</p>",
+    "emailVariables": ["name","time"]
+  }
+  
+]
