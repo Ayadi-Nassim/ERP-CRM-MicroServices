@@ -9,7 +9,7 @@ const CACHE_DURATION_MS = 5 * 60 * 1000; // 5 minutes
 
 const fetchSettingsFromRemote = async () => {
   try {
-    const response = await axios.get('http://localhost:8881/api/setting/listAll');
+    const response = await axios.get(process.env.SETTINGS_API_URL + '/listAll');
     cache.data = response.data || [];
     cache.timestamp = Date.now();
   } catch (error) {
@@ -68,7 +68,7 @@ const increaseBySettingKey = async ({ settingKey }) => {
   
       // Send update to remote microservice
       const response = await axios.patch(
-        `http://localhost:8881/api/setting/updateByKey/${encodeURIComponent(settingKey)}`,
+        `${process.env.SETTINGS_API_URL}/updateByKey/${encodeURIComponent(settingKey)}`,
         { settingValue: newValue }
       );
   
